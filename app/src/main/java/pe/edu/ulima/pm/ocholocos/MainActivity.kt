@@ -226,7 +226,7 @@ class MainActivity : AppCompatActivity() {
                 var areaTurno = findViewById<LinearLayout>(R.id.areaTurno)
                 var ganador = Turn(this)
                 ganador.playerturn = 4
-                ganador.mensajeturn = "¡¡ Jugador "+turn!!.playerturn+" gana!!"
+                ganador.mensajeturn = "¡¡ Jugador "+turn!!.playerturn+" gana !!"
                 areaTurno.removeAllViews()
                 areaTurno.addView(ganador)
 

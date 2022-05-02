@@ -12,7 +12,7 @@ import pe.edu.ulima.pm.ocholocos.R
 
 class Turn : View {
     var playerturn : Int = 1 
-    var mensajeturn : String = "Le toca al jugador "
+    var mensajeturn : String = "Te toca, jugador "
     private var tam: Int = 0 
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
