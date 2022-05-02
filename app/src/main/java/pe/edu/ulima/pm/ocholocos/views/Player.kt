@@ -46,12 +46,11 @@ class Player : View {
         pint.color = Color.WHITE
         pint.setStrokeWidth(tam /38f)
         canvas?.drawCircle(tam / 2f, tam / 2f, radio.toFloat() - 2f, pint)
- 
+
         var painttxt = Paint(Paint.ANTI_ALIAS_FLAG)
         var painttxt2 = Paint(Paint.ANTI_ALIAS_FLAG)
         painttxt.color = Color.BLACK
         painttxt.textSize = tam / 7f
-        painttxt.isFakeBoldText
         painttxt2.color = Color.WHITE
         painttxt2.textSize = tam / 11f
 
