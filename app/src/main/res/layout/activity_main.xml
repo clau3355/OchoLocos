@@ -8,16 +8,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">  <!--Layout principal-->
 
-    <TextView
-        android:id="@+id/myTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:textColor="@android:color/white"
-        android:fontFamily="@font/quicksanditalic"
-        android:textFontWeight="900"
-        android:text="Crazy eights"/>
-
 
     <LinearLayout
         android:id="@+id/areaTurno"
@@ -81,23 +71,28 @@
         android:orientation="horizontal"> <!--Botones-->
 
         <Button
-            android:id="@+id/butPasar"
+            android:id="@+id/pasarBoton"
             style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="46dp"
             android:insetLeft="20dp"
             android:insetRight="20dp"
             android:text="Pasar"
-            app:backgroundTint="#AB20C3" />
+            android:fontFamily="@font/quicksanditalic"
+            android:textFontWeight="900"
+            android:textColor="@color/black"
+            app:backgroundTint="#A8E347" />
 
         <Button
-            android:id="@+id/butTomar"
+            android:id="@+id/pescarBoton"
             style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="46dp"
             android:insetLeft="20dp"
             android:insetRight="20dp"
-            android:text="Tomar"
+            android:text="Pescar"
+            android:fontFamily="@font/quicksanditalic"
+            android:textFontWeight="900"
             app:backgroundTint="#BA3232" />
     </LinearLayout>
     <HorizontalScrollView

@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
     var matchValor : Boolean = true
     var trece : Int = 0
     var jack : Boolean = false
-    var butPasar : Button? = null
-    var butTomar : Button? = null
+    var pasarBoton : Button? = null
+    var pescarBoton : Button? = null
 
     private fun generarDeck() {
         var palos = arrayOf("diamante","trebol", "espada","corazon");
@@ -74,10 +74,10 @@ class MainActivity : AppCompatActivity() {
         areaCartaVolteada.addView(lastcard);
         mostrarCartas()
 
-        butPasar = findViewById<Button>(R.id.butPasar);
-        butTomar = findViewById<Button>(R.id.butTomar);
+        pasarBoton = findViewById<Button>(R.id.pasarBoton);
+        pescarBoton = findViewById<Button>(R.id.pescarBoton);
 
-        butPasar!!.setOnClickListener{
+        pasarBoton!!.setOnClickListener{
             if(jack==false){
                 pasarTurno();
                 mostrarCartas();
@@ -87,13 +87,13 @@ class MainActivity : AppCompatActivity() {
                 mostrarCartas();
                 jack=false;
             }
-            butPasar!!.isEnabled = false;
-            butTomar!!.isEnabled= true;
+            pasarBoton!!.isEnabled = false;
+            pescarBoton!!.isEnabled= true;
 
         };
-        butPasar!!.isEnabled = false;
+        pasarBoton!!.isEnabled = false;
 
-        butTomar!!.setOnClickListener{
+        pescarBoton!!.setOnClickListener{
             sacarCartaJugador();
             if(trece>0){
                 for(i in 1..trece*3){
@@ -101,8 +101,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 trece=0
             }
-            butPasar!!.isEnabled = true
-            butTomar!!.isEnabled= false
+            pasarBoton!!.isEnabled = true
+            pescarBoton!!.isEnabled= false
         }
     }
 
@@ -161,8 +161,8 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 matchPalo=false
-                butPasar!!.isEnabled = true
-                butTomar!!.isEnabled= false
+                pasarBoton!!.isEnabled = true
+                pescarBoton!!.isEnabled= false
                 lastcard = carta
                 areaCartas.removeView(carta)
                 areaCartaVolteada.removeAllViews()
@@ -206,8 +206,8 @@ class MainActivity : AppCompatActivity() {
                     }
                     matchPalo=false
                 }
-                butPasar!!.isEnabled = true
-                butTomar!!.isEnabled= false
+                pasarBoton!!.isEnabled = true
+                pescarBoton!!.isEnabled= false
                 lastcard = carta
                 areaCartas.removeView(carta)
                 areaCartaVolteada.removeAllViews()
@@ -221,8 +221,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "El jugador "+turn!!.playerturn+" va por una", Toast.LENGTH_SHORT).show()
             }
             else if((i.id == turn!!.playerturn) and (i.ManoPlayer.size == 0)){
-                butPasar!!.isEnabled = false
-                butTomar!!.isEnabled= false
+                pasarBoton!!.isEnabled = false
+                pescarBoton!!.isEnabled= false
                 var areaTurno = findViewById<LinearLayout>(R.id.areaTurno)
                 var ganador = Turn(this)
                 ganador.playerturn = 4

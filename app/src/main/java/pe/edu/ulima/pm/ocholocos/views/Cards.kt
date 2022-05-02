@@ -49,24 +49,6 @@ class Cards:View {
         val borders= RectF( 0f,tam*1.75f,2f*tam/3f,0f)
         canvas?.drawRect(borders,pint)
 
-       /* if(valor != 0) {
-            var paintText = Paint(Paint.ANTI_ALIAS_FLAG)
-            paintText.color = Color.BLACK
-            paintText.textSize = tam/4f;
-            if(valor==11){
-                canvas?.drawText("J", tam/15f, 4f*tam/16f, paintText)
-            }
-            else if(valor==12){
-                canvas?.drawText("Q", tam/15f, 4f*tam/16f, paintText)
-            }
-            else if(valor==13){
-                canvas?.drawText("K", tam/15f, 4f*tam/16f, paintText)
-            }
-            else{
-                canvas?.drawText(valor.toString(), tam/15f, 4f*tam/16f, paintText)
-            }
-
-        }*/
         var foto : Bitmap? = null
         if(palo=="espada" ){
         if(valor==1 ){
