@@ -11,9 +11,9 @@ import android.view.View
 import pe.edu.ulima.pm.ocholocos.R
 
 class Turn : View {
-    var playerturn : Int = 1;
+    var playerturn : Int = 1 
     var mensajeturn : String = "Le toca al jugador "
-    private var tam: Int = 0;
+    private var tam: Int = 0 
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         val atribute: TypedArray = context.theme.obtainStyledAttributes(
@@ -40,14 +40,14 @@ class Turn : View {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        val tnwth = View.MeasureSpec.getSize(widthMeasureSpec);
-        val tnhght = View.MeasureSpec.getSize(heightMeasureSpec);
-        tam = Math.min(tnwth, tnhght);
+        val tnwth = View.MeasureSpec.getSize(widthMeasureSpec) 
+        val tnhght = View.MeasureSpec.getSize(heightMeasureSpec) 
+        tam = Math.min(tnwth, tnhght) 
         setMeasuredDimension(3*tam, tam)
     }
 
     override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas);
+        super.onDraw(canvas) 
         var painttxt = Paint(Paint.ANTI_ALIAS_FLAG)
         painttxt.color = Color.WHITE
         painttxt.textSize = tam / 3f

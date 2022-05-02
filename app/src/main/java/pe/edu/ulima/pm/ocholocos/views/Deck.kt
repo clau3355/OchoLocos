@@ -1,4 +1,4 @@
-package pe.edu.ulima.pm.ocholocos.views;
+package pe.edu.ulima.pm.ocholocos.views 
 
 import android.content.Context
 import android.content.res.TypedArray

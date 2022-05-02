@@ -37,15 +37,14 @@ class Cards:View {
         super.onDraw(canvas)
         pint.color = Color.WHITE
         pint.style = Paint.Style.FILL
-        //   val wallpaper= RectF( 0f,tam*1.75f,2f*tam/3f,0f) coordenadas de los cuadros
-        val wallpaper= RectF( 0f,tam*1.75f,2f*tam/3f,0f);
+        // coordenadas de los cuadros
+        val wallpaper= RectF( 0f,tam*1.75f,2f*tam/3f,0f)
         canvas?.drawRect(wallpaper,pint)
 
         pint.setStrokeWidth(tam/15f)
         pint.color = Color.BLACK
         pint.style = Paint.Style.STROKE
 
-        // val borders= RectF( 0f,tam*1.75f,2f*tam/3f,0f)
         val borders= RectF( 0f,tam*1.75f,2f*tam/3f,0f)
         canvas?.drawRect(borders,pint)
 
@@ -179,7 +178,7 @@ class Cards:View {
         }
         }
 
-        canvas?.drawBitmap(foto!!,null, Rect(tam/15, tam/15, 7*tam/8,5*tam/5), pint)
+        canvas?.drawBitmap(foto!!,null, Rect(tam/30, tam/30, 5*tam/6,5*tam/5), pint)
 
 
         }

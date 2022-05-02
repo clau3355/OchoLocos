@@ -1,4 +1,4 @@
-package pe.edu.ulima.pm.ocholocos.views;
+package pe.edu.ulima.pm.ocholocos.views 
 
 import android.content.Context
 import android.content.res.TypedArray
@@ -19,7 +19,7 @@ class Player : View {
             attrs,
             R.styleable.Jugador, 0, 0
         )
-        id = atribute.getInteger(R.styleable.Carta_valueNum, 1);
+        id = atribute.getInteger(R.styleable.Carta_valueNum, 1) 
     }
 
     constructor(context: Context, valor: Int) : super(context) {
@@ -30,7 +30,7 @@ class Player : View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val plyhght = View.MeasureSpec.getSize(heightMeasureSpec)
         val plywth = View.MeasureSpec.getSize(widthMeasureSpec)
-        tam = Math.min(plywth, plyhght);
+        tam = Math.min(plywth, plyhght) 
 
         setMeasuredDimension(tam, tam)
     }
@@ -53,8 +53,6 @@ class Player : View {
         painttxt.textSize = tam / 11f
 
         canvas?.drawText("Player " + id.toString(), tam / 3f, 3 * tam / 8f, painttxt)
-        canvas?.drawText("Player " + id.toString(), tam / 4f, 3 * tam / 8f, painttxt)
-        canvas?.drawText("Jugador " + id.toString(), tam / 4f, 3 * tam / 8f, painttxt)
 
         if(ManoPlayer == null){
             canvas?.drawText("Numero de cartas: 0", tam / 20f, 5 * tam / 8f, painttxt)

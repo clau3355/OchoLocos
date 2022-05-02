@@ -14,7 +14,7 @@ import androidx.core.content.res.ResourcesCompat
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         getSupportActionBar()?.hide()
@@ -36,65 +36,65 @@ class MainActivity : AppCompatActivity() {
     var pescarBoton : Button? = null
 
     private fun generarDeck() {
-        var palos = arrayOf("diamante","trebol", "espada","corazon");
+        var palos = arrayOf("diamante","trebol", "espada","corazon")
         for(i in palos){
             for(j in 1..13){
-                var card = Cards(this, j, i);
+                var card = Cards(this, j, i)
                 card.setOnClickListener{
-                    dejarCarta(card);
+                    dejarCarta(card)
                 }
-                deck!!.cards.add(card);
+                deck!!.cards.add(card)
             }
         }
-        deck!!.cards.shuffle();
+        deck!!.cards.shuffle()
     }
 
     private fun juego() {
-        deck = Deck(this);
-        generarDeck();
+        deck = Deck(this)
+        generarDeck()
         plyr01 = repartirCartas(Player(this, 1))
         plyr02 = repartirCartas(Player(this, 2))
         plyr03 = repartirCartas(Player(this, 3))
         sacarCartaBaraja()
-        var plyrA = findViewById<LinearLayout>(R.id.jugadorA);
-        var plyrB = findViewById<LinearLayout>(R.id.jugadorB);
-        var areaturn = findViewById<LinearLayout>(R.id.areaTurno);
-        var areamano = findViewById<LinearLayout>(R.id.areaMano);
-        var areaCartaVolteada = findViewById<LinearLayout>(R.id.areaCartaVolteada);
-        turn = Turn(this);
+        var plyrA = findViewById<LinearLayout>(R.id.jugadorA)
+        var plyrB = findViewById<LinearLayout>(R.id.jugadorB)
+        var areaturn = findViewById<LinearLayout>(R.id.areaTurno)
+        var areamano = findViewById<LinearLayout>(R.id.areaMano)
+        var areaCartaVolteada = findViewById<LinearLayout>(R.id.areaCartaVolteada)
+        turn = Turn(this)
 
         plyrs.add(plyr01!!)
         plyrs.add(plyr02!!)
         plyrs.add(plyr03!!)
 
-        plyrA.addView(plyr02);
-        plyrB.addView(plyr03);
-        areaturn.addView(turn);
-        areamano.addView(deck!!);
-        areaCartaVolteada.addView(lastcard);
+        plyrA.addView(plyr02)
+        plyrB.addView(plyr03)
+        areaturn.addView(turn)
+        areamano.addView(deck!!)
+        areaCartaVolteada.addView(lastcard)
         mostrarCartas()
 
-        pasarBoton = findViewById<Button>(R.id.pasarBoton);
-        pescarBoton = findViewById<Button>(R.id.pescarBoton);
+        pasarBoton = findViewById<Button>(R.id.pasarBoton)
+        pescarBoton = findViewById<Button>(R.id.pescarBoton)
 
         pasarBoton!!.setOnClickListener{
             if(jack==false){
-                pasarTurno();
-                mostrarCartas();
+                pasarTurno()
+                mostrarCartas()
             }else{
-                pasarTurno();
-                pasarTurno();
-                mostrarCartas();
-                jack=false;
+                pasarTurno()
+                pasarTurno()
+                mostrarCartas()
+                jack=false
             }
-            pasarBoton!!.isEnabled = false;
-            pescarBoton!!.isEnabled= true;
+            pasarBoton!!.isEnabled = false
+            pescarBoton!!.isEnabled= true
 
-        };
-        pasarBoton!!.isEnabled = false;
+        }
+        pasarBoton!!.isEnabled = false
 
         pescarBoton!!.setOnClickListener{
-            sacarCartaJugador();
+            sacarCartaJugador()
             if(trece>0){
                 for(i in 1..trece*3){
                     sacarCartaJugador()
@@ -112,12 +112,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun mostrarCartas() {
-        var areaCartas = findViewById<LinearLayout>(R.id.areaCartas);
-        var plyA = findViewById<LinearLayout>(R.id.jugadorA);
-        var plyB = findViewById<LinearLayout>(R.id.jugadorB);
-        areaCartas.removeAllViews();
-        plyA.removeAllViews();
-        plyB.removeAllViews();
+        var areaCartas = findViewById<LinearLayout>(R.id.areaCartas)
+        var plyA = findViewById<LinearLayout>(R.id.jugadorA)
+        var plyB = findViewById<LinearLayout>(R.id.jugadorB)
+        areaCartas.removeAllViews()
+        plyA.removeAllViews()
+        plyB.removeAllViews()
         var isEmpty = true
         for (i in plyrs){
             if(i.id == turn!!.playerturn){
@@ -139,22 +139,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun dejarCarta(carta : Cards) {
         if(matchPalo or matchValor){
-            var areaCartas = findViewById<LinearLayout>(R.id.areaCartas);
-            var areaCartaVolteada = findViewById<LinearLayout>(R.id.areaCartaVolteada);
+            var areaCartas = findViewById<LinearLayout>(R.id.areaCartas)
+            var areaCartaVolteada = findViewById<LinearLayout>(R.id.areaCartaVolteada)
             if((carta.palo == lastcard!!.palo) and matchPalo ){
                 if(trece>0){
                     for(i in 1..trece*3){
-                        sacarCartaJugador();
+                        sacarCartaJugador()
                     }
                     trece=0
                 }
                 if(carta.valor== 13){
-                    trece = trece.plus(1);
+                    trece = trece.plus(1)
                 }
                 else if(carta.valor== 11){
                     jack = true
                 }
-                deck!!.cards.add(lastcard!!);
+                deck!!.cards.add(lastcard!!)
                 for (i in plyrs){
                     if(i.id == turn!!.playerturn){
                         i.ManoPlayer.remove(carta)
@@ -181,10 +181,10 @@ class MainActivity : AppCompatActivity() {
                         if(carta.valor== 11){
                             jack = true
                         }
-                        deck!!.cards.add(lastcard!!);
+                        deck!!.cards.add(lastcard!!)
                         for (i in plyrs){
                             if(i.id == turn!!.playerturn){
-                                i.ManoPlayer.remove(carta);
+                                i.ManoPlayer.remove(carta)
                             }
                         }
                         matchPalo=false
@@ -193,7 +193,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else {
                     if(carta.valor== 13){
-                        trece = trece.plus(1);
+                        trece = trece.plus(1)
                     }
                     else if(carta.valor== 11){
                         jack = true
@@ -226,7 +226,7 @@ class MainActivity : AppCompatActivity() {
                 var areaTurno = findViewById<LinearLayout>(R.id.areaTurno)
                 var ganador = Turn(this)
                 ganador.playerturn = 4
-                ganador.mensajeturn = "El jugador "+turn!!.playerturn+" gana!!"
+                ganador.mensajeturn = "¡¡ Jugador "+turn!!.playerturn+" gana!!"
                 areaTurno.removeAllViews()
                 areaTurno.addView(ganador)
 
@@ -241,11 +241,11 @@ class MainActivity : AppCompatActivity() {
             player.ManoPlayer.add(deck!!.cards[i])
             deck!!.cards.remove(deck!!.cards[i])
         }
-        return player;
+        return player
     }
     private fun pasarTurno() {
-        turn!!.Jugadornext();
-        var areaturn = findViewById<LinearLayout>(R.id.areaTurno);
+        turn!!.Jugadornext()
+        var areaturn = findViewById<LinearLayout>(R.id.areaTurno)
 
         areaturn.removeAllViews()
         areaturn.addView(turn)
