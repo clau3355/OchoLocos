@@ -46,19 +46,23 @@ class Player : View {
         pint.color = Color.WHITE
         pint.setStrokeWidth(tam /38f)
         canvas?.drawCircle(tam / 2f, tam / 2f, radio.toFloat() - 2f, pint)
-
-        //Pintado de texto dentro
+ 
         var painttxt = Paint(Paint.ANTI_ALIAS_FLAG)
-        painttxt.color = Color.WHITE
-        painttxt.textSize = tam / 11f
+        var painttxt2 = Paint(Paint.ANTI_ALIAS_FLAG)
+        painttxt.color = Color.BLACK
+        painttxt.textSize = tam / 7f
+        painttxt.isFakeBoldText
+        painttxt2.color = Color.WHITE
+        painttxt2.textSize = tam / 11f
 
-        canvas?.drawText("Player " + id.toString(), tam / 3f, 3 * tam / 8f, painttxt)
+
+        canvas?.drawText("Player " + id.toString(), tam / 4f, 3 * tam / 8f, painttxt)
 
         if(ManoPlayer == null){
-            canvas?.drawText("Numero de cartas: 0", tam / 20f, 5 * tam / 8f, painttxt)
+            canvas?.drawText("Numero de cartas: 0", tam / 20f, 5 * tam / 8f, painttxt2)
         }
         else {
-            canvas?.drawText("Numero de cartas: "+ ManoPlayer!!.size.toString(), tam / 8f, 5 * tam / 8f, painttxt)
+            canvas?.drawText("Numero de cartas: "+ ManoPlayer!!.size.toString(), tam / 8f, 5 * tam / 8f, painttxt2)
         }
 
     }
